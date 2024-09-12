@@ -1,0 +1,26 @@
+{% extends 'Base.html' %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% block content %}
+    
+    <h1>Productos de la categoria {{categoria.nombre}}</h1>
+
+    <ul>
+        {% for productos in productos  %}
+        <li>{{productos.nombre}} - {{productos.precio}}</li>
+        {% empty %}
+        <li>No se han agragado productos a esta categoria</li>
+        {% endfor %}
+    </ul>
+
+    {% endblock %}
+
+</body>
+</html>
