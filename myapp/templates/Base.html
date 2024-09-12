@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <nav>
+        <ul>
+            {% if user.is_authenticated %}
+            <select name="categorias" id="categorias-dropdown">
+                {% for categoria in categorias %}
+                    <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+                {% endfor %}
+            </select>
+            <li>
+                <a href="/">Tienda</a>
+            </li>
+            <li>
+                <a href="">Carrito</a>
+            </li>
+            <li>
+                <a href="">Favorito</a>
+            </li>
+            <li>
+                <a href="">Mis Compras</a>
+            </li>
+            <li>
+                <a href="/logout/">Salir</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="/signup/">Crear cuenta</a>
+            </li>
+            <li>
+                <a href="/signin/">Ingresar</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
